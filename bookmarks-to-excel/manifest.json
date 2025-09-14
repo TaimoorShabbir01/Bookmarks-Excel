@@ -1,0 +1,11 @@
+{
+  "name": "Bookmarks to Excel",
+  "description": "Export all links from a bookmark folder (and sub‑folders) to a CSV or Excel file.",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "permissions": ["bookmarks", "downloads"],
+  "action": {
+    "default_title": "Export bookmarks",
+    "default_popup": "popup.html"
+  }
+}

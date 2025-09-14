@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Bookmarks → Excel</title>
+  <style>
+    body { font: 14px/1.4 system-ui, Arial, sans-serif; padding: 12px; width: 360px; }
+    h3 { margin: 0 0 8px; font-size: 16px; }
+    .controls { display: flex; gap: 8px; margin: 8px 0 10px; }
+    .tree { max-height: 260px; overflow: auto; border: 1px solid #e5e7eb; padding: 8px; border-radius: 8px; }
+    .row { display: flex; gap: 8px; margin-top: 12px; }
+    button { padding: 8px 12px; border: 0; border-radius: 8px; cursor: pointer; }
+    button.primary { background: #2563eb; color: #fff; }
+    button.secondary { background: #f3f4f6; }
+    small { color: #6b7280; }
+
+    ul { list-style: none; padding-left: 12px; margin: 0; }
+    li { margin: 2px 0; }
+
+    .folderline { display: flex; align-items: center; gap: 6px; }
+    .twisty {
+      display: inline-flex; width: 18px; height: 18px; align-items: center; justify-content: center;
+      border: 1px solid #e5e7eb; border-radius: 4px; font-size: 11px; cursor: pointer; user-select: none;
+      background: #fafafa;
+    }
+    .twisty.empty { visibility: hidden; }    /* hide toggle for empty folders until we know */
+    .children { margin-left: 18px; }
+    .muted { color: #9ca3af; }
+    label { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h3>Bookmarks → Excel</h3>
+
+  <div class="controls">
+    <button id="expandAll" class="secondary" title="Expand all folders">Expand all</button>
+    <button id="collapseAll" class="secondary" title="Collapse all folders">Collapse all</button>
+  </div>
+
+  <div class="tree" id="tree">Loading…</div>
+
+  <div class="row">
+    <button id="exportCsv" class="primary">Export CSV</button>
+    <button id="exportXlsx" class="secondary" title="Needs xlsx.full.min.js in the folder">Export XLSX</button>
+  </div>
+
+  <p><small>Exports: Title, URL, Date Added, Folder Path.</small></p>
+
+  <!-- Optional XLSX support -->
+  <script src="xlsx.full.min.js" onerror="/* optional */"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
